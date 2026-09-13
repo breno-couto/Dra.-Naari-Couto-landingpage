@@ -1,16 +1,32 @@
-# React + Vite
+# Landing Page - Dra. Naari Couto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page institucional desenvolvida para a Dra. Naari Couto, com o objetivo de apresentar seus serviços, informações profissionais e formas de contato.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
 
-## React Compiler
+## 📌 Sobre o projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este projeto consiste no desenvolvimento de uma landing page responsiva para uma profissional da área da saúde.
 
-## Expanding the ESLint configuration
+A página será composta por seções como:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Apresentação
+- Sobre a profissional
+- Especialidades
+- Depoimentos
+- Clínica
+- Perguntas frequentes
+- Contato
+
+## 💻 Como executar o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/breno-couto/Dra.-Naari-Couto-landingpage.git
