@@ -1,187 +1,958 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Bree+Serif&display=swap');
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
 
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+:root {
+  --vinho: #2A101C;
+  --azul: #0F172E;
+  --creme: #F4EAE0;
+  --azul-claro: #D8E9F1;
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family: 'Alice', serif;
+
+  background-color: var(--creme);
+  color: var(--azul);
+
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+  width: 100%;
+  height: 90px;
+
+  background-color: var(--vinho);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1500px;
+  height: 100%;
+
+  margin: 0 auto;
+
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.header-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: auto;
+  height: 52px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.brand-name {
+  width: auto;
+  height: 38px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+
+  flex: 1;
+}
+
+.header-nav a {
+  color: #ffffff;
+
+  font-family: 'Alice', serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.header-nav a:hover {
+  color: var(--azul-claro);
+
+  opacity: 0.85;
+}
+
+
+/* =====================================================
+   ÍCONES DO HEADER
+===================================================== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.header-actions a {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.header-actions a:hover {
+  transform: translateY(-2px);
+
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-btn {
+  display: none;
+
+  width: 38px;
+  height: 38px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
   position: relative;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  &>div {
-    flex: 1 1 0;
-    padding: 32px;
-
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
   width: 100%;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+  height: calc(100vh - 90px);
+
+  min-height: 600px;
+
+  overflow: hidden;
+
+  display: flex;
+}
+
+
+/* =====================================================
+   FUNDO DA HERO
+===================================================== */
+
+.hero-background {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  overflow: hidden;
+}
+
+
+/* GRID DAS 3 IMAGENS */
+
+.bg-grid {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bg-grid img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter: brightness(0.82);
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  /*
+    O lado esquerdo fica um pouco mais claro
+    para facilitar a leitura do card.
+    O lado direito mantém mais das imagens.
+  */
+
+  background:
+    linear-gradient(90deg,
+      rgba(216, 233, 241, 0.78) 0%,
+      rgba(216, 233, 241, 0.60) 35%,
+      rgba(216, 233, 241, 0.38) 65%,
+      rgba(216, 233, 241, 0.20) 100%);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   CONTAINER DA HERO
+===================================================== */
+
+.hero-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  max-width: 1500px;
+  height: 100%;
+
+  margin: 0 auto;
+
+  padding: 0 5%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =====================================================
+   CONTEÚDO DA HERO
+===================================================== */
+
+.hero-content {
+  position: relative;
+
+  z-index: 10;
+
+  width: 52%;
+  max-width: 650px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.hero-card {
+  width: 100%;
+
+  padding: 36px 40px;
+
+  background-color: rgba(244, 234, 224, 0.96);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.hero-title {
+  margin: 0 0 20px;
+
+  color: var(--vinho);
+
+  font-family: 'Bree Serif', serif;
+
+  font-size: clamp(34px, 3.3vw, 48px);
+
+  font-weight: 400;
+
+  line-height: 1.08;
+}
+
+.hero-subtitle {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--azul);
+
+  font-size: 0.62em;
+
+  line-height: 1.2;
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.hero-text {
+  margin: 0;
+
+  color: var(--azul);
+
+  font-family: 'Alice', serif;
+
+  font-size: clamp(15px, 1.1vw, 17px);
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.hero-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  padding: 14px 26px;
+
+  border-radius: 12px;
+
+  background-color: var(--vinho);
+
+  color: #ffffff;
+
+  font-family: 'Bree Serif', serif;
+
+  font-size: 16px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+
+  background-color: #1a0a12;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.22);
+}
+
+.button-icon {
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   FOTO DA MÉDICA
+===================================================== */
+
+.doctor-wrapper {
+  position: absolute;
+
+  z-index: 8;
+
+  right: 2.5%;
+  bottom: 0;
+
+  height: 96%;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  pointer-events: none;
+}
+
+.doctor-image {
+  display: block;
+
+  height: 100%;
+
+  width: auto;
+
+  max-width: 47vw;
+
+  object-fit: contain;
+
+  object-position: bottom center;
+
+  filter:
+    drop-shadow(-12px 12px 28px rgba(0, 0, 0, 0.20));
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+  display: flex;
+
+  align-items: center;
+
+  gap: 48px;
+
+  padding: 80px 6%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+
+  max-width: 380px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.1);
+
+  display: block;
+}
+
+.about-content h2 {
+  font-family: 'Bree Serif', serif;
+
+  font-size: clamp(26px, 2.5vw, 34px);
+
+  margin-bottom: 20px;
+
+  color: var(--vinho);
+}
+
+.about-content p {
+  margin-bottom: 16px;
+
+  line-height: 1.6;
+}
+
+.about-highlights {
+  list-style: none;
+
+  margin-top: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.about-highlights li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--vinho);
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   ESPECIALIDADES
+===================================================== */
+
+.specialties {
+  background: var(--azul-claro);
+
+  padding: 80px 6%;
+
+  text-align: center;
+}
+
+.specialties h2 {
+  font-family: 'Bree Serif', serif;
+
+  font-size: clamp(26px, 2.5vw, 34px);
+
+  color: var(--vinho);
+
+  margin-bottom: 48px;
+}
+
+.specialties-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 32px;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.specialty-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 32px 24px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-6px);
+}
+
+.specialty-icon {
+  color: var(--vinho);
+
+  margin-bottom: 16px;
+}
+
+.specialty-card h3 {
+  font-family: 'Bree Serif', serif;
+
+  margin-bottom: 12px;
+
+  color: var(--azul);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  background: var(--vinho);
+
+  color: #ffffff;
+
+  padding: 56px 6% 24px;
+}
+
+.footer-content {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 40px;
+
+  justify-content: space-between;
+
+  max-width: 1200px;
+
+  margin: 0 auto 32px;
+}
+
+.footer-block h3 {
+  font-family: 'Bree Serif', serif;
+
+  margin-bottom: 12px;
+}
+
+.footer-block p,
+.footer-block a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--creme);
+
+  margin-bottom: 8px;
+}
+
+.footer-block a:hover {
+  opacity: 0.8;
+}
+
+.footer-copy {
+  text-align: center;
+
+  font-size: 14px;
+
+  opacity: 0.7;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  padding-top: 16px;
+}
+
+
+/* =====================================================
+   TABLET / NOTEBOOK
+===================================================== */
+
+@media (max-width: 1150px) {
+
+  .header-container {
+    padding: 0 3%;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .header-nav {
+    gap: 14px;
   }
 
-  &::after {
+  .header-nav a {
+    font-size: 11px;
+
+    letter-spacing: 0.8px;
+  }
+
+  .brand-name {
+    height: 34px;
+  }
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  .hero-container {
+    padding: 0 3%;
+  }
+
+  .hero-content {
+    width: 54%;
+  }
+
+  .hero-card {
+    padding: 32px;
+  }
+
+  .hero-title {
+    font-size: clamp(30px, 3.2vw, 42px);
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .doctor-wrapper {
     right: 0;
-    border-right-color: var(--border);
+
+    height: 90%;
+  }
+
+  .doctor-image {
+    max-width: 48vw;
+  }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+  /* HEADER */
+
+  .header {
+    height: 78px;
+  }
+
+  .header-container {
+    padding: 0 22px;
+  }
+
+  .brand-logo {
+    height: 46px;
+  }
+
+  .brand-name {
+    height: 30px;
+  }
+
+  .header-nav {
+    position: absolute;
+
+    top: 78px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 24px;
+
+    background-color: var(--vinho);
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .header-nav.active {
+    display: flex;
+  }
+
+  .header-nav a {
+    font-size: 14px;
+
+    letter-spacing: 1.2px;
+  }
+
+  .header-actions a {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    height: auto;
+
+    min-height: calc(100vh - 78px);
+  }
+
+  .hero-container {
+    height: auto;
+
+    min-height: calc(100vh - 78px);
+
+    padding: 45px 22px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+  }
+
+  .hero-content {
+    width: 100%;
+
+    max-width: 650px;
+
+    align-items: center;
+  }
+
+  .hero-card {
+    padding: 28px 25px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .hero-button {
+    margin-bottom: 20px;
+  }
+
+
+  /* MÉDICA */
+
+  .doctor-wrapper {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    height: 390px;
+
+    margin-top: -5px;
+
+    align-self: center;
+  }
+
+  .doctor-image {
+    height: 100%;
+
+    max-width: 85vw;
+  }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 500px) {
+
+  .header-container {
+    padding: 0 15px;
+  }
+
+  .brand-logo {
+    height: 42px;
+  }
+
+  .brand-name {
+    height: 27px;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .hero-container {
+    padding: 35px 15px 0;
+  }
+
+  .hero-card {
+    padding: 24px 20px;
+
+    border-radius: 18px;
+  }
+
+  .hero-title {
+    font-size: 29px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+
+    line-height: 1.55;
+  }
+
+  .hero-button {
+    font-size: 15px;
+
+    padding: 13px 22px;
+  }
+
+  /*
+    Mantemos uma das imagens no celular
+    para não deixar o fundo visualmente pesado.
+  */
+
+  .bg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bg-grid img {
+    display: none;
+  }
+
+  .bg-grid img:first-child {
+    display: block;
+  }
+
+  .doctor-wrapper {
+    height: 330px;
   }
 }

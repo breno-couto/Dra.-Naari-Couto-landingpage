@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&family=Bree+Serif&display=swap');
 
 /* =========================
-   VARIAVEIS E CORES
+   VARIÁVEIS E CORES
 ========================= */
 :root {
   --vinho: #2A101C;
@@ -37,36 +37,110 @@ a {
    HEADER
 ========================= */
 .header {
-  height: 90px;
-  padding: 0 6%;
+  height: 100px;
+  background-color: var(--vinho);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Container interno: controla o alinhamento de logo / nav / ícones */
+.header-container {
+  height: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4% 0 3%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--vinho);
-  position: relative;
-  z-index: 20;
+  gap: 24px;
 }
 
-/* LOGO COMPLETA */
-.header-logo {
+/* MARCA (texto: monograma + nome + assinatura) */
+.header-brand {
   display: flex;
   align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.header-logo img {
-  height: 52px;
+.header-brand .brand-mark {
+  height: 46px;
   width: auto;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
-/* ÍCONES DO HEADER */
-.header-icons {
+.header-brand .brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.1;
+}
+
+.header-brand .brand-eyebrow {
+  font-family: 'Alice', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--azul-claro);
+  opacity: 0.85;
+}
+
+.header-brand .brand-title {
+  font-family: 'Alice', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.header-brand .brand-tagline {
+  font-family: 'Alice', serif;
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--azul-claro);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* MENU DE NAVEGAÇÃO CENTRAL */
+.header-nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 24px;
+  flex: 1;
 }
 
-.header-icons a {
+.header-nav a {
+  color: #ffffff;
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.header-nav a:hover {
+  opacity: 0.8;
+  color: var(--azul-claro);
+}
+
+/* ÍCONES / AÇÕES DO HEADER */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.header-actions a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,9 +148,21 @@ a {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.header-icons a:hover {
+.header-actions a:hover {
   transform: translateY(-2px) scale(1.1);
   opacity: 0.85;
+}
+
+/* Botão hambúrguer (só aparece no mobile) */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
 }
 
 /* =========================
@@ -84,14 +170,20 @@ a {
 ========================= */
 .hero {
   position: relative;
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 100px);
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 
-/* Fundo com 3 imagens */
+/* Fundo com 3 imagens organizadas em colunas */
 .hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-background .bg-grid {
   position: absolute;
   inset: 0;
   display: grid;
@@ -99,56 +191,87 @@ a {
   overflow: hidden;
 }
 
-.hero-background img {
+.hero-background .bg-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  filter: blur(24px) brightness(1.35) saturate(1.05);
+  transform: scale(1.15);
+  /* evita ver a borda desfocada nas laterais com um blur mais forte */
 }
 
-/* Camada azul sobre o fundo */
+/* Overlay claro: clareia as fotos com um azul suave e garante leitura do texto */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg,
-      rgba(216, 233, 241, 0.88) 0%,
-      rgba(216, 233, 241, 0.75) 50%,
-      rgba(216, 233, 241, 0.6) 100%);
+      rgba(216, 233, 241, 0.8) 0%,
+      rgba(216, 233, 241, 0.5) 45%,
+      rgba(216, 233, 241, 0.22) 70%,
+      rgba(216, 233, 241, 0) 100%);
   pointer-events: none;
 }
 
-/* CONTEÚDO DA HERO */
+/* CONTAINER GERAL DO HERO (texto + foto) */
+.hero-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* CONTEÚDO DA HERO (card + botão) */
 .hero-content {
   position: relative;
   z-index: 10;
-  max-width: 580px;
-  margin-left: 6%;
+  width: 100%;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 60px 0;
 }
 
 /* CARD INFORMATIVO */
 .hero-card {
   width: 100%;
-  padding: 36px 40px;
+  padding: 32px 36px;
   background-color: #f5ebe1;
   border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 }
 
-.hero-card h2 {
+.hero-title {
   font-family: 'Bree Serif', serif;
-  font-size: clamp(26px, 2.5vw, 34px);
-  line-height: 1.2;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.25;
   font-weight: 400;
   color: var(--azul);
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
-.hero-card p {
+.hero-subtitle {
   font-family: 'Alice', serif;
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.5;
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 600;
+  color: var(--vinho);
+  letter-spacing: 0.5px;
+}
+
+.hero-text {
+  font-family: 'Alice', serif;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.55;
   color: var(--azul);
 }
 
@@ -162,7 +285,7 @@ a {
   border-radius: 12px;
   background-color: var(--vinho);
   color: #ffffff;
-  font-family: sans-serif;
+  font-family: 'Alice', serif;
   font-size: 16px;
   font-weight: 600;
   transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
@@ -176,11 +299,10 @@ a {
 
 /* ENQUADRAMENTO DA FOTO DA MÉDICA */
 .doctor-wrapper {
-  position: absolute;
+  position: relative;
   z-index: 12;
-  right: 5%;
-  bottom: 0;
-  height: 92%;
+  flex-shrink: 0;
+  height: min(85vh, 640px);
   display: flex;
   align-items: flex-end;
   pointer-events: none;
@@ -189,56 +311,86 @@ a {
 .doctor-image {
   height: 100%;
   width: auto;
+  max-width: 100%;
   object-fit: contain;
-  object-position: bottom right;
+  object-position: bottom center;
 }
 
 /* =========================
    SOBRE (ABOUT)
 ========================= */
-.about {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  padding: 80px 6%;
-  max-width: 1200px;
-  margin: 0 auto;
+/* =========================
+   FORMAÇÃO E APERFEIÇOAMENTO
+========================= */
+.formation {
+  position: relative;
+  background: var(--azul);
+  padding: 130px 6% 80px;
+  overflow: visible;
 }
 
-.about-image img {
+.formation-photo-wrapper {
+  position: absolute;
+  z-index: 5;
+  left: 6%;
+  top: -110px;
+  width: 300px;
+  height: 460px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 10px solid var(--creme);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.formation-photo-wrapper .formation-photo {
   width: 100%;
-  max-width: 380px;
-  border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.about-content h2 {
+.formation-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 340px;
+}
+
+.formation-content h2 {
   font-family: 'Bree Serif', serif;
-  font-size: clamp(26px, 2.5vw, 34px);
-  margin-bottom: 20px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.formation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.formation-card {
+  background: #f5ebe1;
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.formation-card h3 {
+  font-family: 'Bree Serif', serif;
+  font-size: 18px;
+  font-weight: 400;
   color: var(--vinho);
+  margin-bottom: 12px;
 }
 
-.about-content p {
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-.about-highlights {
-  list-style: none;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.about-highlights li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--vinho);
-  font-weight: 600;
+.formation-card p {
+  font-family: 'Alice', serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--azul);
 }
 
 /* =========================
@@ -335,60 +487,113 @@ a {
 /* =========================
    RESPONSIVIDADE
 ========================= */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* Menu mobile em dropdown quando aberto */
+  .header-nav.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: var(--vinho);
+    padding: 24px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
   .hero-content {
-    max-width: 50%;
-    margin-left: 4%;
+    max-width: 55%;
   }
 
   .doctor-wrapper {
-    right: 0%;
-    height: 85%;
+    height: 75vh;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    height: 75px;
-    padding: 0 20px;
+    height: 82px;
   }
 
-  .header-logo img {
-    height: 40px;
+  .header-brand .brand-mark {
+    height: 34px;
+  }
+
+  .header-brand .brand-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .header-brand .brand-eyebrow,
+  .header-brand .brand-tagline {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .header-nav.active {
+    top: 82px;
   }
 
   .hero {
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 30px;
     min-height: auto;
+    padding-top: 30px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
   }
 
   .hero-content {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 92%;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 0;
     z-index: 15;
   }
 
+  .hero-title {
+    align-items: center;
+  }
+
   .doctor-wrapper {
-    position: relative;
-    right: auto;
-    height: 400px;
-    margin-top: 20px;
+    height: 360px;
     align-self: center;
-  }
-
-  .about {
-    flex-direction: column;
-    padding: 56px 20px;
-    text-align: center;
-  }
-
-  .about-highlights li {
-    justify-content: center;
   }
 
   .specialties {
     padding: 56px 20px;
+  }
+
+  .formation {
+    padding: 56px 20px 48px;
+  }
+
+  .formation-photo-wrapper {
+    position: static;
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+    margin: 0 auto 32px;
+  }
+
+  .formation-content {
+    padding-left: 0;
+  }
+
+  .formation-grid {
+    grid-template-columns: 1fr;
   }
 }
