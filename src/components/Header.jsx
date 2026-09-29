@@ -1,77 +1,96 @@
-import React, { useState } from 'react';
-import { Phone, MapPin, Menu, X } from 'lucide-react';
-import InstagramIcon from './icons/InstagramIcon';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import '../index.css';
 
-function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    return (
-        <header className="header">
-            <div className="header-container">
-                {/* Marca: imagem NC (abreviação) + nome em texto */}
-                <a href="#home" className="header-brand">
-                    <img
-                        src="/images/nclogo.png"
-                        alt="NC"
-                        className="brand-mark"
-                    />
-                    <span className="brand-text">
-                        <span className="brand-eyebrow">Dra.</span>
-                        <span className="brand-title">Naari Couto</span>
-                        <span className="brand-tagline">Cirurgia Pélvica Minimamente Invasiva</span>
-                    </span>
-                </a>
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
-                {/* Menu de Navegação Principal */}
-                <nav className={`header-nav ${isMenuOpen ? 'active' : ''}`}>
-                    <a href="#home" onClick={() => setIsMenuOpen(false)}>HOME</a>
-                    <a href="#sobre" onClick={() => setIsMenuOpen(false)}>SOBRE</a>
-                    <a href="#atendimentos" onClick={() => setIsMenuOpen(false)}>ATENDIMENTOS</a>
-                    <a href="#especialidades" onClick={() => setIsMenuOpen(false)}>ESPECIALIDADES</a>
-                    <a href="#faq" onClick={() => setIsMenuOpen(false)}>FAQ</a>
-                    <a href="#historia" onClick={() => setIsMenuOpen(false)}>HISTÓRIA</a>
-                </nav>
+  return (
+    <header className="header">
+      <div className="header-container">
 
-                {/* Ícones de Acesso Rápido */}
-                <div className="header-actions">
-                    <a
-                        href="https://wa.me/5500000000000"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="WhatsApp"
-                        title="WhatsApp"
-                    >
-                        <Phone size={20} />
-                    </a>
-                    <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        title="Instagram"
-                    >
-                        <InstagramIcon size={20} />
-                    </a>
-                    <a
-                        href="#localizacao"
-                        aria-label="Localização"
-                        title="Localização"
-                    >
-                        <MapPin size={20} />
-                    </a>
+        <a
+          href="#home"
+          className="header-brand"
+          onClick={closeMenu}
+        >
+          <img
+            src="/images/nclogo.png"
+            alt="Logo Dra. Naari Couto"
+            className="brand-mark"
+          />
 
-                    {/* Botão Hambúrguer para Celular */}
-                    <button
-                        className="mobile-menu-btn"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        aria-label="Menu"
-                    >
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
-            </div>
-        </header>
-    );
+          <span className="brand-text">
+            <span className="brand-eyebrow">
+              Dra.
+            </span>
+
+            <span className="brand-title">
+              Naari Couto
+            </span>
+
+            <span className="brand-tagline">
+              Cirurgia pélvica minimamente invasiva
+            </span>
+          </span>
+        </a>
+
+        <nav
+          className={`header-nav ${isMenuOpen ? 'active' : ''
+            }`}
+        >
+          <a href="#home" onClick={closeMenu}>
+            HOME
+          </a>
+
+          <a href="#sobre" onClick={closeMenu}>
+            SOBRE
+          </a>
+
+          <a href="#atendimentos" onClick={closeMenu}>
+            ATENDIMENTOS
+          </a>
+
+          <a
+            href="#especialidades"
+            onClick={closeMenu}
+          >
+            ESPECIALIDADES
+          </a>
+
+          <a href="#faq" onClick={closeMenu}>
+            FAQ
+          </a>
+
+          <a href="#historia" onClick={closeMenu}>
+            HISTÓRIA
+          </a>
+        </nav>
+
+        <button
+          className="mobile-menu-btn"
+          onClick={() =>
+            setIsMenuOpen(!isMenuOpen)
+          }
+          aria-label={
+            isMenuOpen
+              ? 'Fechar menu'
+              : 'Abrir menu'
+          }
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
+        </button>
+
+      </div>
+    </header>
+  );
 }
-
-export default Header;
