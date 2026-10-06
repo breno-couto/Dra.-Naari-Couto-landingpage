@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import '../index.css';
 
 const locais = [
@@ -10,7 +10,6 @@ const locais = [
             'Clínica Ambir, Av. Jorge Teixeira, 29, Candeias, Vitória da Conquista - BA',
         telefone: '77 99848-0100',
         link: 'https://wa.me/5577998480100',
-        icone: 'whatsapp',
     },
     {
         nome: 'Hospital Samur',
@@ -20,7 +19,6 @@ const locais = [
             'Hospital Samur, R. Sebastião Rodrigues Castro, 650, Jurema, Vitória da Conquista - BA',
         telefone: '77 2102-8400',
         link: 'tel:+557721028400',
-        icone: 'phone',
     },
 ];
 
@@ -28,12 +26,21 @@ export default function Locations() {
     return (
         <section className="locations" id="atendimentos">
             <div className="section-inner">
-                <h2>Locais de Atendimento</h2>
+                <div className="locations-heading">
+                    <h2>Locais de Atendimento</h2>
+
+                    <p>
+                        Encontre o melhor local para sua consulta ou atendimento
+                        em Vitória da Conquista.
+                    </p>
+                </div>
 
                 <div className="locations-grid">
                     {locais.map((local) => (
                         <article className="location-card" key={local.nome}>
-                            <h3>{local.nome}</h3>
+                            <div className="location-card-header">
+                                <h3>{local.nome}</h3>
+                            </div>
 
                             <div className="location-map">
                                 <iframe
@@ -47,28 +54,29 @@ export default function Locations() {
                                 />
                             </div>
 
-                            <address className="location-address">
-                                {local.endereco}
-                                <br />
-                                {local.cidade}
-                            </address>
+                            <div className="location-info">
+                                <address className="location-address">
+                                    <span>{local.endereco}</span>
+                                    <span>{local.cidade}</span>
+                                </address>
 
-                            <a
-                                href={local.link}
-                                className="location-phone"
-                                target={
-                                    local.icone === 'whatsapp' ? '_blank' : undefined
-                                }
-                                rel="noopener noreferrer"
-                            >
-                                {local.icone === 'whatsapp' ? (
-                                    <MessageCircle size={16} />
-                                ) : (
-                                    <Phone size={16} />
-                                )}
+                                <a
+                                    href={local.link}
+                                    className="location-phone"
+                                    target={
+                                        local.link.startsWith('https://')
+                                            ? '_blank'
+                                            : undefined
+                                    }
+                                    rel="noopener noreferrer"
+                                >
+                                    <span className="location-phone-icon">
+                                        <Phone size={18} strokeWidth={2} />
+                                    </span>
 
-                                <span>{local.telefone}</span>
-                            </a>
+                                    <span>{local.telefone}</span>
+                                </a>
+                            </div>
                         </article>
                     ))}
                 </div>
