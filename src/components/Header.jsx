@@ -20,23 +20,15 @@ export default function Header() {
         >
           <img
             src="/images/nclogo.png"
+            alt="Dra. Naari Couto"
+            className="brand-marknc"
+          />
+
+          <img
+            src="/images/nome_logo.png"
             alt="Logo Dra. Naari Couto"
             className="brand-mark"
           />
-
-          <span className="brand-text">
-            <span className="brand-eyebrow">
-              Dra.
-            </span>
-
-            <span className="brand-title">
-              Naari Couto
-            </span>
-
-            <span className="brand-tagline">
-              Cirurgia pélvica minimamente invasiva
-            </span>
-          </span>
         </a>
 
         <nav
