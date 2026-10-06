@@ -68,7 +68,7 @@ img {
   max-width: 1400px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 3.5%;
+  padding: 0 3%;
 
   display: flex;
   align-items: center;
@@ -83,44 +83,18 @@ img {
   flex-shrink: 0;
 }
 
-.header-brand .brand-mark {
+.header-brand .brand-marknc {
   width: auto;
-  height: 42px;
+  height: 40px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-.header-brand .brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  line-height: 1;
-}
-
-.header-brand .brand-eyebrow {
-  color: #FFFFFF;
-  font-size: 7px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.header-brand .brand-title {
-  color: #FFFFFF;
-  font-family: 'Alice', serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.header-brand .brand-tagline {
-  color: var(--azul-claro);
-  font-size: 6px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 2px;
+.header-brand .brand-mark {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .header-nav {
@@ -132,9 +106,9 @@ img {
 }
 
 .header-nav a {
-  color: #FFFFFF;
+  color: #D8E9F1;
   font-family: 'Alice', serif;
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.3px;
   text-transform: uppercase;
