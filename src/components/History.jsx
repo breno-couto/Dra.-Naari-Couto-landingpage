@@ -2,67 +2,65 @@ import '../index.css';
 
 export default function History() {
     return (
-        <section
-            className="history"
-            id="historia"
-        >
+        <section className="history" id="historia">
             <div className="history-content">
 
-                <div className="history-text">
+                <div className="history-panel">
 
-                    <h2>
-                        Minha História: além de cirurgia,
-                        uma mulher
-                    </h2>
+                    <div className="history-text">
+                        <span className="history-label">TRAJETÓRIA</span>
 
-                    <p>
-                        Minha jornada profissional começou ainda
-                        na graduação da Faculdade de Medicina.
-                        Desde então, aprofundei-me em uma área que
-                        me trouxe paixão, conhecimento e, acima de
-                        tudo, propósito.
-                    </p>
+                        <h2>
+                            Minha história vai além da cirurgia
+                        </h2>
 
-                    <p>
-                        Durante a formação em Cirurgia Geral,
-                        compreendi a importância de ouvir as
-                        mulheres e respeitar suas histórias.
-                        Foi essa aproximação que despertou em mim
-                        o desejo de seguir uma trajetória dedicada
-                        à cirurgia pélvica feminina.
-                    </p>
+                        <p>
+                            Minha jornada começou ainda na graduação em Medicina.
+                            Ao longo da formação em Cirurgia Geral, descobri uma
+                            área que unia conhecimento, precisão e, principalmente,
+                            propósito: o cuidado com a saúde da mulher.
+                        </p>
 
-                    <p>
-                        A laparoscopia e posteriormente a cirurgia
-                        robótica ampliaram minhas possibilidades
-                        de oferecer procedimentos mais precisos,
-                        seguros e adequados às particularidades
-                        de cada paciente.
-                    </p>
+                        <p>
+                            Foi dessa aproximação que nasceu minha dedicação à
+                            cirurgia pélvica feminina. A laparoscopia e,
+                            posteriormente, a cirurgia robótica ampliaram minhas
+                            possibilidades de oferecer procedimentos minimamente
+                            invasivos, seguros e individualizados.
+                        </p>
 
-                    <p>
-                        Hoje, dedico minha atuação à cirurgia
-                        pélvica minimamente invasiva, unindo
-                        conhecimento técnico, cuidado individualizado
-                        e atenção às necessidades de cada mulher.
-                    </p>
+                        <p>
+                            Hoje, minha atuação é guiada pela técnica e pela
+                            escuta. Acredito que cada mulher possui uma história
+                            única e que cuidar vai muito além de tratar uma doença.
+                        </p>
 
-                    <p>
-                        Acredito que cada paciente possui uma
-                        história única e que o cuidado deve
-                        considerar não apenas a doença, mas também
-                        a pessoa que está diante de mim.
-                    </p>
+                        <div className="history-highlight">
+                            <span className="history-line"></span>
+
+                            <span>
+                                Cuidado que une técnica, precisão e escuta.
+                            </span>
+                        </div>
+                    </div>
 
                 </div>
 
-                <div className="history-photo-wrapper">
+                <div className="history-photo-area">
 
-                    <img
-                        src="/images/foto_historia.png"
-                        alt="Dra. Naari Couto"
-                        className="history-photo"
-                    />
+                    <div className="history-photo-decoration"></div>
+
+                    <div className="history-photo-wrapper">
+                        <img
+                            src="/images/foto_historia.png"
+                            alt="Dra. Naari Couto"
+                            className="history-photo"
+                        />
+                    </div>
+
+                    <span className="history-photo-caption">
+                        Cirurgia pélvica minimamente invasiva
+                    </span>
 
                 </div>
 

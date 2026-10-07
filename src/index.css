@@ -1163,9 +1163,7 @@ img {
 
   overflow: hidden;
 
-  border-radius: 50%;
-  border: 5px solid rgba(216, 233, 241, 0.92);
-
+  border-radius: 150%;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
 }
 
@@ -1217,17 +1215,17 @@ img {
   color: var(--vinho);
 
   font-family: 'Bree Serif', serif;
-  font-size: clamp(18px, 1.7vw, 22px);
+  font-size: clamp(20px, 1.9vw, 24px);
   font-weight: 400;
   line-height: 1.2;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .diff-card p {
   color: var(--azul);
 
-  font-size: clamp(14.5px, 1.15vw, 16px);
+  font-size: clamp(16px, 1.3vw, 18px);
   line-height: 1.55;
   text-wrap: pretty;
 }
@@ -1444,125 +1442,558 @@ img {
 
 /* =========================================================
    HISTÓRIA
+   Design editorial + foto sobreposta
 ========================================================= */
 
 .history {
   --section-bg: url('/images/imagemfundo2.png');
 
-  padding: clamp(56px, 7vw, 96px) 6%;
+  position: relative;
+
+  width: 100%;
+
+  padding: clamp(75px, 8vw, 105px) 6%;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(244, 234, 224, 0.91),
+      rgba(244, 234, 224, 0.91)),
+    var(--section-bg) center / cover no-repeat;
 }
+
+
+/* Pequeno detalhe decorativo no fundo */
+
+.history::before {
+  content: '';
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -170px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(42, 16, 28, 0.08);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+========================================================= */
 
 .history-content {
   position: relative;
 
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
+
+  min-height: 500px;
 
   margin: 0 auto;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
-  gap: clamp(28px, 5vw, 64px);
+  gap: 0;
 }
 
-.history-text {
+
+/* =========================================================
+   BLOCO AZUL
+========================================================= */
+
+.history-panel {
   position: relative;
   z-index: 1;
 
-  flex: 1;
+  width: 70%;
 
-  padding: clamp(36px, 4vw, 56px) 0;
-}
+  min-height: 430px;
 
-/* faixa azul de ponta a ponta, na altura do texto */
-.history-text::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+  padding: clamp(48px, 5vw, 65px) clamp(45px, 6vw, 80px) clamp(48px, 5vw, 60px) clamp(45px, 6vw, 75px);
+
+  display: flex;
+  align-items: center;
 
   background: var(--azul);
-  box-shadow: 0 0 0 100vmax var(--azul);
-  clip-path: inset(0 -100vmax);
+
+  border-radius: 24px 0 0 24px;
+
+  box-shadow:
+    0 25px 55px -25px rgba(15, 23, 46, 0.45);
 }
 
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.history-text {
+  width: 100%;
+  max-width: 600px;
+
+  color: var(--creme);
+}
+
+
+/* Pequeno título */
+
+.history-label {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+
+  color: var(--azul-claro);
+
+  font-family: 'Alice', serif;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* linha ao lado de TRAJETÓRIA */
+
+.history-label::before {
+  content: '';
+
+  width: 28px;
+  height: 1px;
+
+  background: var(--azul-claro);
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
 .history-text h2 {
+  max-width: 540px;
+
+  margin: 0 0 23px;
+
   color: var(--creme);
 
   font-family: 'Bree Serif', serif;
-  font-size: clamp(26px, 2.8vw, 36px);
-  font-weight: 400;
-  line-height: 1.15;
-  text-wrap: balance;
 
-  margin-bottom: 18px;
+  font-size: clamp(29px, 3.2vw, 43px);
+  font-weight: 400;
+
+  line-height: 1.08;
+
+  text-wrap: balance;
 }
+
+
+/* =========================================================
+   PARÁGRAFOS
+========================================================= */
 
 .history-text p {
-  color: var(--creme);
+  max-width: 570px;
 
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.65;
+  margin: 0 0 13px;
+
+  color: rgba(244, 234, 224, 0.92);
+
+  font-family: 'Alice', serif;
+
+  font-size: clamp(14px, 1.15vw, 16px);
+
+  line-height: 1.6;
+
   text-wrap: pretty;
-
-  margin-bottom: 12px;
 }
 
-.history-text p:last-child {
-  margin-bottom: 0;
+.history-text p:last-of-type {
+  margin-bottom: 22px;
 }
 
-.history-photo-wrapper {
-  position: relative;
-  z-index: 2;
 
-  width: min(34%, 340px);
-  aspect-ratio: 4 / 5;
+/* =========================================================
+   FRASE DE DESTAQUE
+========================================================= */
+
+.history-highlight {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: var(--azul-claro);
+
+  font-family: 'Bree Serif', serif;
+
+  font-size: clamp(15px, 1.3vw, 18px);
+
+  line-height: 1.35;
+}
+
+.history-line {
+  width: 35px;
+  height: 2px;
 
   flex-shrink: 0;
 
-  overflow: hidden;
+  background: var(--azul-claro);
 
-  border-radius: 24px 24px 24px 110px;
-
-  box-shadow: 0 28px 50px -18px rgba(15, 23, 46, 0.55);
+  border-radius: 10px;
 }
 
+
+/* =========================================================
+   ÁREA DA FOTO
+========================================================= */
+
+.history-photo-area {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 50%;
+  right: 0;
+
+  width: 39%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================================
+   DECORAÇÃO ATRÁS DA FOTO
+========================================================= */
+
+.history-photo-decoration {
+  position: absolute;
+
+  top: -18px;
+  right: -14px;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  border: 2px solid var(--vinho);
+
+  border-radius: 25px 25px 25px 115px;
+
+  opacity: 0.35;
+
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   FOTO
+========================================================= */
+
+.history-photo-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 350px;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  border: 7px solid var(--creme);
+
+  border-radius: 25px 25px 25px 115px;
+
+  background: var(--creme);
+
+  box-shadow:
+    0 28px 55px -20px rgba(15, 23, 46, 0.55);
+}
+
+
 .history-photo {
+  display: block;
+
   width: 100%;
   height: 100%;
 
-  display: block;
-
   object-fit: cover;
+
   object-position: center;
+
+  transition: transform 0.5s ease;
 }
+
+
+.history-photo-wrapper:hover .history-photo {
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   LEGENDA DA FOTO
+========================================================= */
+
+.history-photo-caption {
+  position: relative;
+
+  margin-top: 14px;
+
+  max-width: 280px;
+
+  color: var(--vinho);
+
+  font-family: 'Alice', serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.4px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .history {
+    padding: 70px 4%;
+  }
+
+  .history-content {
+    min-height: 470px;
+  }
+
+  .history-panel {
+    width: 72%;
+
+    padding-left: 50px;
+    padding-right: 90px;
+  }
+
+  .history-photo-area {
+    width: 38%;
+  }
+
+  .history-photo-wrapper {
+    max-width: 300px;
+  }
+
+  .history-text h2 {
+    font-size: 32px;
+  }
+
+  .history-text p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
   .history {
-    padding: 48px 20px 56px;
+    padding: 55px 18px 70px;
   }
+
+
+  .history::before {
+    width: 300px;
+    height: 300px;
+
+    right: -180px;
+  }
+
 
   .history-content {
+    min-height: auto;
+
+    display: flex;
     flex-direction: column;
+
     align-items: stretch;
-    gap: 0;
   }
+
+
+  /* BLOCO AZUL */
+
+  .history-panel {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 38px 25px 145px;
+
+    border-radius: 20px;
+
+    box-shadow:
+      0 20px 40px -20px rgba(15, 23, 46, 0.45);
+  }
+
 
   .history-text {
-    padding: 36px 0 76px;
+    max-width: none;
   }
 
-  .history-photo-wrapper {
-    width: min(80%, 320px);
-    align-self: center;
-    margin-top: -48px;
-    /* a foto "pousa" na borda da faixa azul */
 
-    border-radius: 22px 22px 22px 80px;
+  .history-label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .history-text h2 {
+    max-width: 450px;
+
+    margin-bottom: 20px;
+
+    font-size: clamp(27px, 7vw, 34px);
+  }
+
+
+  .history-text p {
+    max-width: none;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+
+  .history-highlight {
+    font-size: 16px;
+  }
+
+
+  /* FOTO */
+
+  .history-photo-area {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 82%;
+
+    margin: -105px auto 0;
+
+    transform: none;
+  }
+
+
+  .history-photo-wrapper {
+    width: 100%;
+    max-width: 320px;
+
+    border-width: 6px;
+
+    border-radius: 22px 22px 22px 90px;
+  }
+
+
+  .history-photo-decoration {
+    top: -12px;
+    right: -10px;
+
+    border-radius: 22px 22px 22px 90px;
+  }
+
+
+  .history-photo-caption {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .history {
+    padding: 45px 15px 60px;
+  }
+
+
+  .history-panel {
+    padding:
+      32px 20px 125px;
+  }
+
+
+  .history-label {
+    margin-bottom: 12px;
+
+    font-size: 9px;
+  }
+
+
+  .history-text h2 {
+    font-size: 27px;
+
+    line-height: 1.1;
+  }
+
+
+  .history-text p {
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  .history-highlight {
+    gap: 10px;
+
+    font-size: 14px;
+  }
+
+
+  .history-line {
+    width: 25px;
+  }
+
+
+  .history-photo-area {
+    width: 88%;
+
+    margin-top: -90px;
+  }
+
+
+  .history-photo-wrapper {
+    border-width: 5px;
+
+    border-radius: 18px 18px 18px 70px;
   }
 }
 
