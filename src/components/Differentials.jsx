@@ -5,45 +5,56 @@ export default function Differentials() {
     <section className="differentials" id="especialidades">
       <div className="differentials-layout">
 
+        {/* FOTO CENTRAL */}
         <div className="differentials-photo-wrapper">
           <img
-            src="/images/imagemfundo2.png"
+            src="/images/imagemfundo1.png"
             alt="Dra. Naari Couto em centro cirúrgico"
             className="differentials-photo"
           />
         </div>
 
+        {/* CARD SUPERIOR ESQUERDO */}
         <article className="diff-card diff-tl">
           <h3>Atendimento Exclusivo</h3>
+
           <p>
-            Consultas com tempo dedicado para ouvir você. Atendimento
-            particular e convênios, com agilidade na marcação e suporte
-            contínuo ao paciente.
+            Consultas com tempo dedicado para ouvir você.
+            Atendimento particular e convênios, com agilidade
+            na marcação e suporte contínuo ao paciente.
           </p>
         </article>
 
+        {/* CARD SUPERIOR DIREITO */}
         <article className="diff-card diff-tr">
           <h3>Planejamento Cirúrgico</h3>
+
           <p>
-            Desde a primeira avaliação o planejamento cirúrgico é
-            individualizado, com os cuidados definidos de acordo com a
-            particularidade de cada paciente.
+            Desde a primeira avaliação o planejamento cirúrgico
+            é individualizado, com os cuidados definidos de acordo
+            com a particularidade de cada paciente.
           </p>
         </article>
 
+        {/* CARD INFERIOR ESQUERDO */}
         <article className="diff-card diff-bl">
           <h3>Procedimentos</h3>
+
           <p>
-            Atuação focada em Endometriose, Adenomiose, Miomas Uterinos e
-            Cistos Ovarianos para garantir segurança e o mínimo de invasão.
+            Atuação focada em Endometriose, Adenomiose,
+            Miomas Uterinos e Cistos Ovarianos para garantir
+            segurança e o mínimo de invasão.
           </p>
         </article>
 
+        {/* CARD INFERIOR DIREITO */}
         <article className="diff-card diff-br">
           <h3>Técnicas Utilizadas</h3>
+
           <p>
-            Técnicas Minimamente Invasivas através da Cirurgia Robótica para
-            casos complexos ou Laparoscópica em casos selecionados.
+            Técnicas Minimamente Invasivas através da Cirurgia
+            Robótica para casos complexos ou Laparoscópica
+            em casos selecionados.
           </p>
         </article>
 

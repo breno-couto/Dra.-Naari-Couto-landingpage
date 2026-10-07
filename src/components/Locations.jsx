@@ -28,11 +28,6 @@ export default function Locations() {
             <div className="section-inner">
                 <div className="locations-heading">
                     <h2>Locais de Atendimento</h2>
-
-                    <p>
-                        Encontre o melhor local para sua consulta ou atendimento
-                        em Vitória da Conquista.
-                    </p>
                 </div>
 
                 <div className="locations-grid">

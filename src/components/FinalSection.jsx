@@ -1,111 +1,102 @@
-import { MessageCircle } from 'lucide-react';
+import {
+    MessageCircle,
+    Mail,
+    MapPin,
+} from 'lucide-react';
+
 import '../index.css';
 
 export default function FinalSection() {
     return (
-        <section className="final-section">
+        <>
+            {/* =====================================================
+          SEÇÃO FINAL / AGENDAMENTO
+      ===================================================== */}
 
-            <div className="final-content">
+            <section className="final-section" id="agendamento">
+                <div className="final-content">
 
-                <div className="final-photo-wrapper">
+                    {/* FOTO */}
+                    <div className="final-photo-wrapper">
+                        <img
+                            src="/images/foto_ultima.png"
+                            alt="Dra. Naari Couto"
+                            className="final-photo"
+                        />
 
-                    <img
-                        src="/images/foto_ultima.png"
-                        alt="Dra. Naari Couto"
-                        className="final-photo"
-                    />
+                    </div>
 
-                </div>
-
-                <div className="final-text">
-
-                    <h2>
-                        Agende sua avaliação agora
-                    </h2>
-
-                    <p>
-                        Mesmo com o fim da jornada, a Dra. Naari
-                        está aqui para cuidar de você.
-                    </p>
-
-                    <p className="final-highlight">
-                        Atendimento em Cirurgia Pélvica
-                        Minimamente Invasiva
-                    </p>
-
-                    <a
-                        href="https://wa.me/5577998480100"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="final-button"
-                    >
-                        <MessageCircle size={15} />
-
-                        <span>
-                            Agende sua consulta
+                    {/* TEXTO */}
+                    <div className="final-text">
+                        <span className="final-label">
+                            CUIDE-SE COM QUEM ENTENDE
                         </span>
-                    </a>
 
+                        <h2>
+                            Sua saúde merece
+                            <span> cuidado e atenção.</span>
+                        </h2>
+
+                        <p className="final-description">
+                            Agende sua avaliação e tire suas dúvidas sobre o
+                            tratamento mais adequado para o seu caso.
+                        </p>
+
+                        <a
+                            href="https://wa.me/5577998480100"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="final-button"
+                        >
+                            <MessageCircle size={19} strokeWidth={2} />
+                            <span>Agende sua consulta</span>
+                        </a>
+
+                    </div>
                 </div>
+            </section>
 
-            </div>
+            {/* =====================================================
+          FOOTER
+      ===================================================== */}
 
             <footer className="footer">
-
                 <div className="footer-content">
 
+                    {/* MARCA */}
                     <div className="footer-brand">
-
                         <img
                             src="/images/nclogo.png"
                             alt="Logo Dra. Naari Couto"
                             className="footer-logo"
                         />
 
+                        <p>
+                            Cirurgia pélvica
+                            <br />
+                            minimamente invasiva
+                        </p>
                     </div>
 
+                    {/* MENU */}
                     <div className="footer-block">
+                        <h3>MENU</h3>
 
-                        <h3>
-                            MENU
-                        </h3>
-
-                        <a href="#home">
-                            HOME
-                        </a>
-
-                        <a href="#sobre">
-                            SOBRE
-                        </a>
-
-                        <a href="#atendimentos">
-                            ATENDIMENTOS
-                        </a>
-
-                        <a href="#especialidades">
-                            ESPECIALIDADES
-                        </a>
-
-                        <a href="#faq">
-                            FAQ
-                        </a>
-
-                        <a href="#historia">
-                            HISTÓRIA
-                        </a>
-
+                        <a href="#home">Home</a>
+                        <a href="#sobre">Sobre</a>
+                        <a href="#atendimentos">Atendimentos</a>
+                        <a href="#especialidades">Especialidades</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#historia">História</a>
                     </div>
 
+                    {/* CONTATO */}
                     <div className="footer-block">
+                        <h3>CONTATO</h3>
 
-                        <h3>
-                            CONTATOS
-                        </h3>
-
-                        <a
-                            href="mailto:dranaari@gmail.com"
-                        >
-                            dranaari@gmail.com
+                        <a href="mailto:dranaari@gmail.com">
+                            <Mail size={15} />
+                            <span>dranaari@gmail.com</span>
                         </a>
 
                         <a
@@ -113,7 +104,7 @@ export default function FinalSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Instagram
+                            <span>Instagram</span>
                         </a>
 
                         <a
@@ -121,46 +112,56 @@ export default function FinalSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            WhatsApp
+                            <MessageCircle size={15} />
+                            <span>WhatsApp</span>
                         </a>
-
                     </div>
 
-                    <div className="footer-block">
+                    {/* LOCAIS */}
+                    <div className="footer-block footer-locations">
+                        <h3>LOCAIS</h3>
 
-                        <h3>
-                            LOCAIS
-                        </h3>
+                        <div className="footer-location">
+                            <MapPin size={16} />
 
-                        <p>
-                            Clínica Ambir
-                        </p>
+                            <div>
+                                <strong>Clínica Ambir</strong>
 
-                        <p>
-                            Av. Jorge Teixeira, 29
-                            <br />
-                            Candeias
-                        </p>
+                                <p>
+                                    Av. Jorge Teixeira, 29
+                                    <br />
+                                    Candeias
+                                </p>
+                            </div>
+                        </div>
 
-                        <p>
-                            Hospital Samur
-                        </p>
+                        <div className="footer-location">
+                            <MapPin size={16} />
 
-                        <p>
-                            R. Sebastião Rodrigues Castro, 650
-                        </p>
+                            <div>
+                                <strong>Hospital Samur</strong>
 
+                                <p>
+                                    R. Sebastião Rodrigues Castro, 650
+                                    <br />
+                                    Jurema
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
+                {/* COPYRIGHT */}
                 <div className="footer-copy">
-                    © {new Date().getFullYear()} Dra. Naari Couto.
-                    Todos os direitos reservados.
+                    <span>
+                        © {new Date().getFullYear()} Dra. Naari Couto
+                    </span>
+
+                    <span>
+                        Todos os direitos reservados.
+                    </span>
                 </div>
-
             </footer>
-
-        </section>
+        </>
     );
 }
