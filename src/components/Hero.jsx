@@ -41,7 +41,9 @@ export default function Hero() {
                             <span>
                                 Cirurgiã da Pelve Feminina
                             </span>
+                        </h1>
 
+                        <h1 className="hero-subtitle">
                             <span>
                                 Técnicas Minimamente Invasivas
                             </span>
@@ -65,14 +67,19 @@ export default function Hero() {
                     <a
                         href="https://wa.me/5577998480100"
                         target="_blank"
-                        rel="noopener noreferrer"
+                         rel="noopener noreferrer"
                         className="hero-button"
                     >
-                        <MessageCircle size={17} />
+                        <img
+                            src="/images/whatsapp.png"
+                            alt=""
+                            className="hero-button-icon"
+                    />
 
                         <span>
                             Agende sua consulta
                         </span>
+
                     </a>
 
                 </div>
