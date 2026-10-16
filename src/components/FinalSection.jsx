@@ -72,9 +72,9 @@ export default function FinalSection() {
                         />
 
                         <p>
-                            Cirurgia pélvica
+                            Cirurgia Pélvica
                             <br />
-                            minimamente invasiva
+                            Minimamente Invasiva
                         </p>
                     </div>
 
@@ -94,13 +94,13 @@ export default function FinalSection() {
                     <div className="footer-block">
                         <h3>CONTATO</h3>
 
-                        <a href="mailto:dranaari@gmail.com">
+                        <a href="mailto:naaricouto@gmail.com">
                             <Mail size={15} />
-                            <span>dranaari@gmail.com</span>
+                            <span>naaricouto@gmail.com</span>
                         </a>
 
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/dra.naaricouto?vrfl=MTRubGJyanltZzYxcQ%3D%3D&utm_source=qr"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

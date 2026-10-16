@@ -7,7 +7,7 @@ const locais = [
         endereco: 'Av. Jorge Teixeira, 29 - Candeias',
         cidade: 'Vitória da Conquista - BA',
         busca:
-            'Clínica Ambir, Av. Jorge Teixeira, 29, Candeias, Vitória da Conquista - BA',
+            'Dra. Naari Couto - Cirurgia Pélvica Minimamente Invasiva',
         telefone: '77 99848-0100',
         link: 'https://wa.me/5577998480100',
     },
@@ -18,7 +18,7 @@ const locais = [
         busca:
             'Hospital Samur, R. Sebastião Rodrigues Castro, 650, Jurema, Vitória da Conquista - BA',
         telefone: '77 2102-8400',
-        link: 'tel:+557721028400',
+        link: 'https://wa.me/557721028400',
     },
 ];
 
