@@ -9,10 +9,15 @@ export default function Header() {
     setIsMenuOpen(false);
   }
 
+  function toggleMenu() {
+    setIsMenuOpen((prev) => !prev);
+  }
+
   return (
     <header className="header">
       <div className="header-container">
 
+        {/* LOGOTIPOS */}
         <a
           href="#home"
           className="header-brand"
@@ -26,14 +31,15 @@ export default function Header() {
 
           <img
             src="/images/nome_logo.png"
-            alt="Logo Dra. Naari Couto"
+            alt="Dra. Naari Couto - Cirurgiã da Pelve Feminina"
             className="brand-mark"
           />
         </a>
 
+        {/* NAVEGAÇÃO */}
         <nav
-          className={`header-nav ${isMenuOpen ? 'active' : ''
-            }`}
+          id="header-navigation"
+          className={`header-nav ${isMenuOpen ? 'active' : ''}`}
         >
           <a href="#home" onClick={closeMenu}>
             HOME
@@ -47,10 +53,7 @@ export default function Header() {
             ATENDIMENTOS
           </a>
 
-          <a
-            href="#especialidades"
-            onClick={closeMenu}
-          >
+          <a href="#especialidades" onClick={closeMenu}>
             ESPECIALIDADES
           </a>
 
@@ -63,17 +66,14 @@ export default function Header() {
           </a>
         </nav>
 
+        {/* BOTÃO DO MENU MOBILE */}
         <button
+          type="button"
           className="mobile-menu-btn"
-          onClick={() =>
-            setIsMenuOpen(!isMenuOpen)
-          }
-          aria-label={
-            isMenuOpen
-              ? 'Fechar menu'
-              : 'Abrir menu'
-          }
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isMenuOpen}
+          aria-controls="header-navigation"
         >
           {isMenuOpen ? (
             <X size={24} />

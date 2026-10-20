@@ -50,6 +50,7 @@ img {
   max-width: 100%;
 }
 
+
 /* =========================================================
    HEADER
 ========================================================= */
@@ -76,6 +77,10 @@ img {
   gap: 25px;
 }
 
+/* =========================================================
+   LOGOTIPOS
+========================================================= */
+
 .header-brand {
   display: flex;
   align-items: center;
@@ -97,6 +102,10 @@ img {
   flex-shrink: 0;
 }
 
+/* =========================================================
+   NAVEGAÇÃO DESKTOP E TABLET
+========================================================= */
+
 .header-nav {
   display: flex;
   align-items: center;
@@ -114,6 +123,7 @@ img {
   text-transform: uppercase;
   white-space: nowrap;
 
+  text-decoration: none;
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
@@ -121,6 +131,11 @@ img {
   color: var(--azul-claro);
   opacity: 0.8;
 }
+
+/* =========================================================
+   BOTÃO DO MENU MOBILE
+   Oculto em tablets e desktops
+========================================================= */
 
 .mobile-menu-btn {
   display: none;
@@ -131,6 +146,101 @@ img {
   align-items: center;
   justify-content: center;
   padding: 5px;
+}
+
+/* =========================================================
+   HEADER MOBILE — SOMENTE ATÉ 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .header {
+    height: 64px;
+  }
+
+  .header-container {
+    position: relative;
+    padding: 0 4%;
+    gap: 8px;
+  }
+
+  /* Logos compactos */
+  .header-brand {
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .header-brand .brand-marknc {
+    height: 30px;
+    width: auto;
+  }
+
+  .header-brand .brand-mark {
+    height: 36px;
+    width: auto;
+  }
+
+  /* Menu fechado */
+  .header-nav {
+    display: none;
+  }
+
+  /* Botão hambúrguer */
+  .mobile-menu-btn {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 6px;
+  }
+
+  .mobile-menu-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Menu aberto */
+  .header-nav.active {
+    display: flex;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+
+    padding: 8px 5% 16px;
+
+    background: var(--vinho-header);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+
+    z-index: 101;
+  }
+
+  /* Links do menu mobile */
+  .header-nav.active a {
+    display: block;
+    padding: 14px 4px;
+
+    color: #D8E9F1;
+    font-family: 'Alice', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+
+    border-bottom: 1px solid rgba(216, 233, 241, 0.18);
+  }
+
+  .header-nav.active a:hover {
+    color: var(--azul-claro);
+    opacity: 0.8;
+  }
+
+  .header-nav.active a:last-child {
+    border-bottom: none;
+  }
 }
 
 /* =========================================================
@@ -313,6 +423,144 @@ img {
   object-position: bottom center;
 }
 
+/* =========================================
+   HERO — MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .hero {
+    position: relative;
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding: 28px 0 36px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-background .bg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-background .bg-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 18px;
+    box-sizing: border-box;
+  }
+
+  /* Foto da Dra. centralizada */
+  .doctor-wrapper {
+    position: relative;
+    order: 1;
+    align-self: center;
+    flex-shrink: 1;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .doctor-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* Caixa sobre a metade inferior da foto */
+  .hero-content {
+    position: relative;
+    order: 2;
+    align-self: center;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin: -85px auto 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 2;
+  }
+
+  .hero-card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 21px 18px;
+    box-sizing: border-box;
+    background: var(--creme);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.13);
+  }
+
+  .hero-title {
+    font-size: clamp(23px, 6vw, 28px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 4.8vw, 22px);
+    line-height: 1.25;
+    margin: 0 0 15px;
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+  }
+
+  .hero-button {
+    position: relative;
+    align-self: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 18px auto 0;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .hero-button-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+}
 /* =========================================================
    FORMAÇÃO
 ========================================================= */
@@ -445,6 +693,97 @@ img {
   color: var(--azul);
   font-size: 14px;
   line-height: 1.35;
+}
+
+/* =========================================
+   FORMAÇÃO — MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .formation {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    min-height: 0;
+    padding: 40px 18px;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 0;
+  }
+
+  .formation::before {
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .formation-photo-wrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: 1;
+    width: 100%;
+    max-width: 280px;
+    height: 360px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    z-index: 1;
+  }
+
+  .formation-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .formation-content {
+    position: relative;
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    transform: none;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+
+  .formation-content h2 {
+    width: 100%;
+    margin: 0 0 22px;
+    font-size: 25px;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .formation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .formation-card {
+    width: 100%;
+    min-height: 0;
+    padding: 20px 16px;
+    box-sizing: border-box;
+  }
+
+  .formation-card h3 {
+    font-size: 20px;
+  }
+
+  .formation-card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
 
 /* =========================================================
